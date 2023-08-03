@@ -37,3 +37,24 @@ output "instance" {
   }
 }
 ```
+
+### example provider configuration
+```hcl
+terraform {
+  required_providers {
+    openstack = {
+      source = "terraform-provider-openstack/openstack"
+      version = ">=1.51.1"
+    }
+  }
+  required_version = ">= 1.1.19"
+}
+
+provider "openstack" {
+  auth_url    = "https://deicide.cloud.local:5000/v3"
+  user_domain_name = "default"
+  user_name   = "glen-benton"
+  password    = "your_decapitated_cloud_password"
+  region = "RegionOne"
+}
+```
