@@ -3,7 +3,7 @@
 ```hcl
 module "vm" {
 #=========BASE===========
-source         = "https://github.com/ratelbee/openstack-instance.git"
+source         = "git::https://github.com/ratelbee/openstack-instance.git"
 instance_count = 3
 index_start    = 1
 image_id       = "17e24307-0823-4130-a88d-046da28ca98f"
@@ -25,5 +25,15 @@ hostname  = "cluster"
 admin           = "glen"
 ssh_keys        =  file(./id_rsa.pub")
 ssh_private_key = "./id_rsa"
+}
+```
+### example output
+
+```hcl
+output "instance" {
+  value = {
+    ip = module.vm.address
+    storage_size = module.vm.storage[0].0.volume_size
+  }
 }
 ```
