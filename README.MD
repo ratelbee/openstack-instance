@@ -3,7 +3,7 @@
 ```hcl
 module "vm" {
 #=========BASE===========
-source         = "https://github.com/ratelbee/openstack-module.git"
+source         = "https://github.com/ratelbee/openstack-instance.git"
 instance_count = 3
 index_start    = 1
 image_id       = "17e24307-0823-4130-a88d-046da28ca98f"
@@ -27,4 +27,3 @@ ssh_keys        =  file(./id_rsa.pub")
 ssh_private_key = "./id_rsa"
 }
 ```
-
